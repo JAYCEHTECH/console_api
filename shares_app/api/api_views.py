@@ -199,6 +199,7 @@ class TransactionDetail(APIView):
             except:
                 user = CustomUser.objects.get(username=response.data["username"])
             wanted_transaction = NewTransaction.objects.filter(reference=reference, user=user).first()
+            print(wanted_transaction)
             if wanted_transaction:
                 print(wanted_transaction.batch_id)
                 batch_id = wanted_transaction.batch_id
