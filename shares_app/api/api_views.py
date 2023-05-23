@@ -197,10 +197,12 @@ class TransactionDetail(APIView):
             try:
                 print("used this")
                 user = CustomUser.objects.get(api_key=request.headers.get("api-key"))
+                print(user)
+                print(request.headers.get("api-key"))
             except:
                 print("using this instead")
-                user = CustomUser.objects.get(api_key=request.user.api_key)
-            print(user)
+                user = CustomUser.objects.get(id=request.user.id)
+                print(user)
             wanted_transaction = NewTransaction.objects.filter(reference=reference, user=user).first()
             print(wanted_transaction)
             if wanted_transaction:
