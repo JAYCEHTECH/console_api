@@ -1,5 +1,4 @@
 from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.hashers import check_password
 from django.db import models
 
 
@@ -55,20 +54,6 @@ class CreditingHistory(models.Model):
 
     def __str__(self):
         return self.user.username + " " + str(self.amount_credited)
-
-
-class TransactionHistory(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    beneficiary = models.PositiveBigIntegerField(blank=False, null=False)
-    bundle_amount = models.PositiveIntegerField(blank=False, null=False)
-    reference = models.CharField(max_length=100, blank=False, null=False, default="Failed")
-    batch_id = models.CharField(max_length=100, blank=False, null=False, default="Failed")
-    transaction_date = models.DateTimeField(auto_now_add=True)
-    transaction_status = models.CharField(max_length=100, blank=False, null=False)
-    transaction_status_message = models.CharField(max_length=400, blank=True, null=True)
-
-    def __str__(self):
-        return f"{self.user.username}"
 
 
 class AuthorizationCodes(models.Model):
