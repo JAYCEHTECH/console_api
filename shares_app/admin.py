@@ -29,7 +29,6 @@ class NewTransactionAdmin(admin.ModelAdmin):
 
 admin.site.register(models.CustomUser, CustomUserAdmin)
 admin.site.register(models.UserProfile, UserProfileAdmin)
-admin.site.register(models.TransactionHistory)
 admin.site.register(models.AuthorizationCodes, AuthorizationCodesAdmin)
 admin.site.register(models.NewTransaction, NewTransactionAdmin)
 admin.site.register(models.CreditingHistory, CreditingHistoryAdmin)
