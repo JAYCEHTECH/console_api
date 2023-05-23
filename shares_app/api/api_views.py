@@ -197,6 +197,7 @@ class TransactionDetail(APIView):
             try:
                 user = CustomUser.objects.get(api_key=request.headers.get("api-key"))
             except:
+                print("using this instead")
                 user = CustomUser.objects.get(api_key=request.user.api_key)
             wanted_transaction = NewTransaction.objects.filter(reference=reference, user=user).first()
             print(wanted_transaction)
