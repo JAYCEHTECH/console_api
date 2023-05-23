@@ -194,12 +194,13 @@ class TransactionDetail(APIView):
         print(response.data)
 
         if response.data["valid"]:
-            try:
-                print("used this")
-                user = CustomUser.objects.get(api_key=request.headers.get("api-key"))
-                print(user)
-                print(request.headers.get("api-key"))
-            except:
+            api_key = request.headers.get("api-key")
+            print(api_key)
+            if api_key:
+                print("yhp")
+                user = CustomUser.objects.get(api_key=api_key)
+            else:
+                print("nope")
                 print("using this instead")
                 user = CustomUser.objects.get(id=request.user.id)
                 print(user)
