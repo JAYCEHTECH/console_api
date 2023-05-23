@@ -14,7 +14,7 @@ from django.contrib.auth.hashers import make_password
 from rest_framework import status
 
 from .. import models, helper
-from ..models import CustomUser, NewTransaction, TransactionHistory
+from ..models import CustomUser, NewTransaction
 from ..serializers import TransactionSerializer
 
 
