@@ -320,7 +320,7 @@ def query_transaction(request):
         # response = requests.get(url=f"https://api-4dbxv.ondigitalocean.app/flexi/v1/transaction_detail/{reference.strip()}/", headers=headers)
         # data = response.json()
         # print(data)
-        response = api_views.TransactionDetail().post(request, reference).data
+        response = api_views.TransactionDetail().post(request, reference.strip()).data
         print("query response")
         print(response)
         if response["code"] == "0000":
