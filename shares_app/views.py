@@ -151,10 +151,14 @@ def register(request):
                 code_needed.save()
                 form.save()
                 username = form.cleaned_data.get("username")
+                phone_number = form.cleaned_data.get("phone")
+                business_name = form.cleaned_data.get("business_name")
                 user = models.CustomUser.objects.get(username=username)
                 user.user_id = f"BPS{secrets.token_hex(3)}".upper()
                 user_profile_data = models.UserProfile.objects.create(
                     user=user,
+                    phone=phone_number,
+                    business_name=business_name,
                     bundle_amount=0
                 )
                 user.save()
