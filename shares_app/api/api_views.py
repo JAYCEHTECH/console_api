@@ -103,7 +103,7 @@ class ValidateAPIKeysView(APIView):
 
 @api_view(["GET"])
 def transactions(request):
-    all_transactions = NewTransaction.objects.all()
+    all_transactions = NewTransaction.objects.all().order_by("transaction_date").reverse()
     serializer = TransactionSerializer(all_transactions, many=True)
     return JsonResponse({"transactions": serializer.data}, safe=True)
 

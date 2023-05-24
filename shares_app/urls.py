@@ -18,6 +18,7 @@ urlpatterns = [
     path("crediting/", views.crediting_page, name="crediting"),
     path("credit-history/", views.credit_history, name="credit-history"),
     path("query_transaction/", views.query_transaction, name="query_transaction"),
+    path("all_transactions/", views.all_transactions, name="all_transactions"),
     path('logout/', LogoutView.as_view(next_page=settings.LOGOUT_REDIRECT_URL), name='logout'),
 
     # =================== API URLS ===============================

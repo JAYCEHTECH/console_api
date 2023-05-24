@@ -331,5 +331,9 @@ def query_transaction(request):
     return render(request, "layouts/query-txn.html")
 
 
-
+@login_required(login_url='login')
+def all_transactions(request):
+    all_users_transactions = models.NewTransaction.objects.all().order_by("transaction_date").reverse()
+    context = {"txns": all_users_transactions}
+    return render(request, "layouts/admin-all-txns.html", context=context)
 
