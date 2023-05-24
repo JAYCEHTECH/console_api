@@ -30,6 +30,7 @@
                   <table id="txnTable" class="table">
                     <thead>
                       <tr>
+                        <th>User</th>
                         <th>Receiver</th>
                         <th>Amount</th>
                         <th>Date</th>
@@ -42,7 +43,8 @@
                     {% if txns %}
                         {% for txn in txns %}
                           <tr>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ txn.receiver}}</strong></td>
+                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ txn.user}}</strong></td>
+                            <td>{{ txn.receiver }}</td>
                             <td>{{ txn.bundle_amount}}MB</td>
                             <td>{{ txn.transaction_date }}</td>
                             <td>

@@ -18,6 +18,9 @@ class CustomUser(AbstractUser):
     def has_valid_api_secret(self, secret_key: str) -> bool:
         return self.api_secret == secret_key
 
+    def __str__(self):
+        return self.username
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
